@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View } from 'react-native'
+import { StyleSheet, TextInput, View, Text} from 'react-native'
 import React from 'react'
 import ButtonCustom from './Button'
 import { colors } from '../Styles/Colors';
@@ -16,6 +16,7 @@ const Header = ({handleAdd}) => {
 
     return (
         <View style={styles.topContainer}>
+            <Text style={styles.titulo}>Lista de mis actividades</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Agregar tarea"
@@ -36,6 +37,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         flex: 0.2,
+    },
+    titulo: {
+        fontSize:28,
+        fontWeight:600
     },
     input: {
         borderRadius: 5,

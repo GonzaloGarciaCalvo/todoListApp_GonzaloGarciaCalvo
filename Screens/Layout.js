@@ -11,7 +11,7 @@ const Layout = () => {
 
     const handleAdd = (input) => {
         {
-            setTodoList([...todoList, { id: Date.now(), todo: input }]);
+            setTodoList([...todoList, { id: Date.now(), todo: input, completed:false }]);
         }
     }
 
@@ -28,7 +28,6 @@ const Layout = () => {
 
     const handleEdit = (text) => {
         const todoToEdit = todoList.find(todo => todo.id === todoSelected.id);
-        // const todoListFiltered = todoList.filter(todo => todo.id !== todoSelected.id)
         todoToEdit.todo = text
         const todoAux = []
         todoList.forEach((item) => {
@@ -36,6 +35,16 @@ const Layout = () => {
         })
         setTodoList(todoAux)
     }
+
+
+    const taskComplete = id => { 
+        setTodoList(currentItems => currentItems.map(item => item.id === id ? { ...item, completed: !item.completed } : item))
+        console.log( "taskComplete")
+        console.log("Layout dentro de taskComplete") //no muestra cambio
+        console.log(todoList)
+    }
+    console.log("Layout fuera de taskComplete:") //Muestra cambio
+    console.log(todoList)
 
     return (
         <View style={styles.container}>
@@ -47,6 +56,7 @@ const Layout = () => {
                 handleEdit = {handleEdit}
                 handleDelete = {handleDelete}
                 todoSelected = {todoSelected}
+                taskComplete ={taskComplete}
             />
         </View>
     )

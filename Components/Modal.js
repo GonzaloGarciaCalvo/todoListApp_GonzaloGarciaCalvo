@@ -1,14 +1,18 @@
 import { Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { colors } from '../Styles/Colors';
 
-const CustomModal = ({
+
+const CustomModal = (
+    {
     modalVisible,
     setModalVisible,
     handleEdit, 
     todoSelected, 
     handleDelete,
+    taskComplete
     }
 ) => {
+
 
     return (
         <Modal
@@ -29,9 +33,13 @@ const CustomModal = ({
                         onChangeText={handleEdit}
                         value={todoSelected.todo}
                     />
-                    <TouchableOpacity style={styles.delete} onPress={handleDelete}>
-                        <Text style={styles.deleteText}>Eliminar tarea</Text>
+                    <TouchableOpacity onPress={handleDelete}>
+                        <Text>Eliminar todo</Text>
                     </TouchableOpacity>
+
+                <TouchableOpacity  onPress={() => {taskComplete(todoSelected.id)}}> 
+                    <Text >Completado</Text>
+                </TouchableOpacity>
                 </View>
             </View>
         </Modal>
@@ -87,4 +95,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.gray,
         alignSelf: 'center'
     },
+    Button: {
+        width:'60%',
+        backgroundColor: colors.darkBrown
+    }
 })

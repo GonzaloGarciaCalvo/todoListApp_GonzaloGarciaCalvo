@@ -5,7 +5,7 @@ import { colors } from '../Styles/Colors'
 const ButtonCustom = ({onPress}) => {
     return (
         <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={styles.text}>+ todo</Text>
+            <Text style={styles.text}>+ tarea</Text>
         </TouchableOpacity>
     )
 }

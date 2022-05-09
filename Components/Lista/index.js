@@ -22,6 +22,7 @@ const Lista = ({handleModal, todoList}) => {
                     keyExtractor={todo => todo.id}
                     renderItem={renderTodo}
                 />
+                
             )}
 
             {todoList.length === 0 && <Text>No hay tareas</Text>}
